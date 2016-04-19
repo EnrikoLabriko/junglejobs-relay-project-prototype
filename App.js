@@ -119,8 +119,8 @@ class NewsListByType extends React.Component {
       <div>
         <div>
           <h2>News by type:</h2>
-          <button onClick={this.renderListByType.bind(this, 'breaking')}>Показать breaking</button>
-          <button onClick={this.renderListByType.bind(this, 'common')}>Показать common</button>
+          <button onClick={this.renderListByType.bind(this, 'breaking')}>Show breaking news</button>
+          <button onClick={this.renderListByType.bind(this, 'common')}>Show common news</button>
           <div>
             {this.state.value}
           </div>
