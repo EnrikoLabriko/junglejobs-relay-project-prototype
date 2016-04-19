@@ -30,9 +30,9 @@ var newsList = [
 module.exports = {
   Account: Account,
   News: News,
-  getAccount: function(id) { return accounts.filter(function(u) { return u.id == id })[0] },
-  getAnonymousAccount: function() { return accounts[0] },
-  getNewsById: function(id) { return newsList.filter(function(n) { return n.id == id }) },
-  getAllNews: function() { return newsList }
+  getAccount: function(id) { return accounts.filter(function(u) { return u.id === id; })[0]; },
+  getAnonymousAccount: function() { return accounts[0]; },
+  getNewsById: function(id) { return newsList.filter(function(n) { return n.id === id; }); },
+  getAllNews: function() { return newsList; }
 };
 

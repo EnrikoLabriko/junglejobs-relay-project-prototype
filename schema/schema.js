@@ -4,18 +4,18 @@ var db = require('./database');
 
 var nodeDefinitions = GraphQLRelay.nodeDefinitions(function(globalId) {
   var idInfo = GraphQLRelay.fromGlobalId(globalId);
-  if (idInfo.type == 'Account') {
-    return db.getAccount(idInfo.id)
-  } else if (idInfo.type == 'News') {
-    return db.getNewsById(idInfo.id)
+  if (idInfo.type === 'Account') {
+    return db.getAccount(idInfo.id);
+  } else if (idInfo.type === 'News') {
+    return db.getNewsById(idInfo.id);
   }
-  return null
+  return null;
 });
 
 var accountType = new GraphQL.GraphQLObjectType({
   name: 'Account',
   description: 'Account description',
-  isTypeOf: function(obj) { return obj instanceof db.Account },
+  isTypeOf: function(obj) { return obj instanceof db.Account; },
   fields: function() {
     return {
       id: GraphQLRelay.globalIdField('Account'),
@@ -35,7 +35,7 @@ var accountType = new GraphQL.GraphQLObjectType({
           return GraphQLRelay.connectionFromArray(db.getAllNews(), args);
         }
       }
-    }
+    };
   },
   interfaces: [nodeDefinitions.nodeInterface]
 });
@@ -43,7 +43,7 @@ var accountType = new GraphQL.GraphQLObjectType({
 var newsType = new GraphQL.GraphQLObjectType({
   name: 'News',
   description: 'News description',
-  isTypeOf: function(obj) { return obj instanceof db.News },
+  isTypeOf: function(obj) { return obj instanceof db.News; },
   fields: {
     id: GraphQLRelay.globalIdField('News'),
     name: {

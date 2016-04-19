@@ -20,7 +20,7 @@ class App extends React.Component {
         <NewsListByType account={this.props.account} />
         <NewsById account={this.props.account} />
       </div>
-    )
+    );
   }
 }
 
@@ -37,7 +37,7 @@ class NewsList extends React.Component {
       <ul>
         {this.props.edges.map((edge, index) => {
           if (condition && edge.node[field] === condition) {
-            if (field && field == 'type') {
+            if (field === 'type') {
               return (
                 <li
                   key={edge.node.id}
@@ -53,8 +53,8 @@ class NewsList extends React.Component {
                   Id : {index + 1},
                   Global ID: {edge.node.id}
                 </li>
-              )
-            } else if (field == 'id') {
+              );
+            } else if (field === 'id') {
               return (
                 <li
                   key={edge.node.id}
@@ -70,7 +70,7 @@ class NewsList extends React.Component {
                   <strong> Id : {index + 1}</strong>,
                   Global ID: {edge.node.id}
                 </li>
-              )
+              );
             }
           } else if (condition === null) {
             return (
@@ -88,15 +88,15 @@ class NewsList extends React.Component {
                 Id : {index + 1},
                 Global ID: {edge.node.id}
               </li>
-            )
+            );
           } else {
             return (
               <div />
-            )
+            );
           }
         })}
       </ul>
-    )
+    );
   }
 }
 
@@ -119,14 +119,14 @@ class NewsListByType extends React.Component {
       <div>
         <div>
           <h2>News by type:</h2>
-          <button onClick={this.renderListByType.bind(this, 'breaking')}>Показать breaking</button>
-          <button onClick={this.renderListByType.bind(this, 'common')}>Показать common</button>
+          <button onClick={this.renderListByType.bind(this, 'breaking')}>Show breaking news</button>
+          <button onClick={this.renderListByType.bind(this, 'common')}>Show common news</button>
           <div>
             {this.state.value}
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
@@ -141,7 +141,7 @@ class NewsById extends React.Component {
       <NewsList edges={this.props.account.news.edges} condition={e.target.value.toString()} field="id" />
     );
 
-    this.setState({value: result})
+    this.setState({value: result});
   }
 
   render() {
@@ -162,7 +162,7 @@ class NewsById extends React.Component {
                   data-type={edge.node.type}>
                     ID: {index + 1}
                 </option>
-              )
+              );
             })}
           </select>
           <div>
@@ -170,7 +170,7 @@ class NewsById extends React.Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
